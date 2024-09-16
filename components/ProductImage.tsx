@@ -5,16 +5,27 @@ import {
   StyleSheet,
   TouchableOpacity,
   SafeAreaView,
+  ImageSourcePropType
 } from 'react-native'
 
 import { scale } from '../utils/dimension'
 
 import Badge from './Badge'
 
-const ProductImage = ({ images }: any) => {
-  const [mainImage, setMainImage] = useState(images.main)
+interface ProductImageProps {
+  images: {
+    main: ImageSourcePropType
+    sub1: ImageSourcePropType
+    sub2: ImageSourcePropType
+    sub3: ImageSourcePropType
+  }
+}
 
-  const handleSubImagePress = (image: any) => {
+
+const ProductImage: React.FC<ProductImageProps> = ({ images }: any) => {
+  const [mainImage, setMainImage] = useState<ImageSourcePropType>(images.main)
+
+  const handleSubImagePress = (image: ImageSourcePropType) => {
     setMainImage(image)
   }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-const ProductDetails = () => {
+const ProductDetails: React.FC = () => {
   return (
     <>
       <View style={styles.container}>
