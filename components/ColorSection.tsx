@@ -9,6 +9,10 @@ import {
 
 import { scale } from '../utils/dimension'
 
+interface ColorSectionProps {
+  onColorChange: (colorName: string) => void
+}
+
 const colors = [
   { color: '#FFA200', name: 'Orange' },
   { color: '#51804D', name: 'Green' },
@@ -16,7 +20,7 @@ const colors = [
   { color: '#BE4545', name: 'Red' },
 ]
 
-const ColorSection = ({ onColorChange }: any) => {
+const ColorSection: React.FC<ColorSectionProps> = ({ onColorChange }) => {
   return (
     <>
       <View style={styles.container}>

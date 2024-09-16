@@ -12,7 +12,7 @@ SplashScreen.preventAutoHideAsync()
 const Stack = createNativeStackNavigator()
 
 export default function App() {
-  const [fontsLoaded, setFontsLoaded] = useState(false)
+  const [fontsLoaded, setFontsLoaded] = useState<boolean>(false)
 
   useEffect(() => {
     async function prepare() {

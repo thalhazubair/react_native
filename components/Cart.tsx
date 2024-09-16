@@ -10,9 +10,9 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-const Cart = () => {
-  const [isWishlistAdded, setIsWishlistAdded] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
+const Cart: React.FC = () => {
+  const [isWishlistAdded, setIsWishlistAdded] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const toggleWishlist = () => {
     setIsWishlistAdded(!isWishlistAdded)

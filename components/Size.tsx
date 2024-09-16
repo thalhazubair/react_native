@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native'
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { scale } from '../utils/dimension'
 
-const sizes = [
+interface SizeItem {
+  label: string
+  value: string
+}
+
+const sizes: SizeItem[] = [
   { label: 'Width', value: '70cm' },
   { label: 'Depth', value: '70cm' },
   { label: 'Height', value: '70cm' },
@@ -18,8 +17,8 @@ const sizes = [
   { label: 'Seat Height', value: '70cm' },
 ]
 
-const Size = () => {
-  const [isSizeVisible, setIsSizeVisible] = useState(false)
+const Size: React.FC = () => {
+  const [isSizeVisible, setIsSizeVisible] = useState<boolean>(false)
 
   const toggleSize = () => {
     setIsSizeVisible(!isSizeVisible)

@@ -4,7 +4,7 @@ import { Link } from '@react-navigation/native'
 
 import HorizontalScroll from './MoreProduct'
 
-const Recent = () => {
+const Recent: React.FC = () => {
   return (
     <View style={styles.frequent}>
       <View style={[styles.dheader, { paddingHorizontal: 16 }]}>

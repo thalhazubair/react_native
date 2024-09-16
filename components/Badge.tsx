@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-const Badge = () => {
+const Badge: React.FC = () => {
   return (
     <View style={styles.ribbonWrapper}>
       <View style={styles.ribbonContainer}>
