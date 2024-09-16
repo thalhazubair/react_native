@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 const ProductDetails: React.FC = () => {
   return (
@@ -10,6 +11,10 @@ const ProductDetails: React.FC = () => {
           <Text style={styles.pricing1}>$230.00</Text>
           <Text style={styles.pricing2}>$512.28</Text>
           <Text style={styles.offer}>45%OFF</Text>
+        </View>
+        <View style={styles.ratingContainer}>
+          <Icon name="star" size={18} color="#FFD700" style={styles.starIcon} />
+          <Text style={styles.rating}>4.9 (300)</Text>
         </View>
         <View style={{ paddingTop: 10 }}>
           <Text style={styles.description}>
@@ -71,5 +76,20 @@ const styles = StyleSheet.create({
   borderBottom: {
     height: 1,
     backgroundColor: '#E0E0E0',
+  },
+  ratingContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 8,
+    gap: 4
+  },
+  starIcon: {
+    marginRight: 4,
+  },
+  rating: {
+    fontFamily: 'manrope-regular',
+    fontWeight: '400',
+    fontSize: 12,
+    marginRight: 4,
   },
 })

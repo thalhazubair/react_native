@@ -1,26 +1,33 @@
 import React from 'react'
-import { StyleSheet, View, Image, Text, ScrollView } from 'react-native'
+import { StyleSheet, View, Image, Text, FlatList } from 'react-native'
+import Icon from 'react-native-vector-icons/FontAwesome'
+import products, {Product} from '../utils/product'
+
 
 const MoreProduct: React.FC = () => {
+  const renderItem = ({ item }: { item: Product }) => (
+    <View key={item.id} style={styles.itemContainer}>
+      <Image style={styles.image} source={item.image} />
+      <Text style={styles.offer}>{item.offer}</Text>
+      <Text style={styles.productname}>{item.name}</Text>
+      <Text style={styles.pricing1}>{item.price}</Text>
+      <Text style={styles.pricing2}>{item.originalPrice}</Text>
+      <View style={styles.ratingContainer}>
+        <Icon name="star" size={18} color="#FFD700" style={styles.starIcon} />
+        <Text style={styles.rating}>{item.rating}</Text>
+      </View>
+    </View>
+  )
+
   return (
-    <ScrollView
+    <FlatList
       horizontal
-      contentContainerStyle={styles.scrollContainer}
+      data={products}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.id.toString()}
       showsHorizontalScrollIndicator={false}
-    >
-      {Array.from({ length: 5 }).map((_, index) => (
-        <View key={index} style={styles.itemContainer}>
-          <Image
-            style={styles.image}
-            source={require('../assets/chair1.png')}
-          />
-          <Text style={styles.offer}>45%OFF</Text>
-          <Text style={styles.productname}>EKERO</Text>
-          <Text style={styles.pricing1}>$230.00</Text>
-          <Text style={styles.pricing2}>$512.28</Text>
-        </View>
-      ))}
-    </ScrollView>
+      contentContainerStyle={styles.scrollContainer}
+    />
   )
 }
 
@@ -54,7 +61,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: 'white',
     position: 'absolute',
-    bottom: 93,
+    bottom: 118,
     left: 16,
     backgroundColor: 'red',
     paddingHorizontal: 4,
@@ -72,12 +79,26 @@ const styles = StyleSheet.create({
     fontFamily: 'manrope-regular',
     fontWeight: '700',
     fontSize: 20,
-    marginBottom: 2,
   },
   pricing2: {
     fontFamily: 'manrope-regular',
     fontWeight: '400',
     fontSize: 12,
     textDecorationLine: 'line-through',
+  },
+  ratingContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    paddingVertical: 4
+  },
+  starIcon: {
+    marginRight: 4,
+  },
+  rating: {
+    fontFamily: 'manrope-regular',
+    fontWeight: '400',
+    fontSize: 12,
+    marginRight: 4,
   },
 })
