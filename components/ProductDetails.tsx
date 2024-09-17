@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginVertical: 8,
-    gap: 4
+    gap: 4,
   },
   starIcon: {
     marginRight: 4,

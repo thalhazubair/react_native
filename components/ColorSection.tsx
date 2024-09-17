@@ -1,17 +1,8 @@
-import React, { useState } from 'react'
-import {
-  StyleSheet,
-  View,
-  Text,
-  Dimensions,
-  TouchableOpacity,
-} from 'react-native'
+import React, { useContext } from 'react'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 
 import { scale } from '../utils/dimension'
-
-interface ColorSectionProps {
-  onColorChange: (colorName: string) => void
-}
+import { ImageContext } from '../context/ImageContext'
 
 const colors = [
   { color: '#FFA200', name: 'Orange' },
@@ -20,7 +11,27 @@ const colors = [
   { color: '#BE4545', name: 'Red' },
 ]
 
-const ColorSection: React.FC<ColorSectionProps> = ({ onColorChange }) => {
+const ColorSection: React.FC = () => {
+  const { setImages } = useContext(ImageContext)
+
+  const handleColorChange = (color: any) => {
+    if (color === 'Green') {
+      setImages({
+        main: require('../assets/greenchair1.png'),
+        sub1: require('../assets/greenchair1.png'),
+        sub2: require('../assets/greenchair2.png'),
+        sub3: require('../assets/greenchair3.png'),
+      })
+    } else {
+      setImages({
+        main: require('../assets/chair1.png'),
+        sub1: require('../assets/chair1.png'),
+        sub2: require('../assets/chair2.png'),
+        sub3: require('../assets/chair3.png'),
+      })
+    }
+  }
+
   return (
     <>
       <View style={styles.container}>
@@ -29,7 +40,7 @@ const ColorSection: React.FC<ColorSectionProps> = ({ onColorChange }) => {
           {colors.map((color, index) => (
             <TouchableOpacity
               key={index}
-              onPress={() => onColorChange(color.name)}
+              onPress={() => handleColorChange(color.name)}
             >
               <View key={index} style={[styles.colorBox]}>
                 <View
