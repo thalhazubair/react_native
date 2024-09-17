@@ -71,6 +71,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderTopLeftRadius: 14,
     borderTopRightRadius: 14,
+    shadowColor: 'F8F8F8',
+    shadowOpacity: 1,
+    shadowRadius: 12,
+    elevation: 5,
   },
   wishlistButton: {
     width: 66,

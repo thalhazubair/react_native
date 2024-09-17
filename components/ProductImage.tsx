@@ -1,28 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import {
   View,
   Image,
   StyleSheet,
   TouchableOpacity,
   SafeAreaView,
-  ImageSourcePropType
+  ImageSourcePropType,
 } from 'react-native'
 
 import { scale } from '../utils/dimension'
+import { ImageContext } from '../context/ImageContext'
 
 import Badge from './Badge'
 
-interface ProductImageProps {
-  images: {
-    main: ImageSourcePropType
-    sub1: ImageSourcePropType
-    sub2: ImageSourcePropType
-    sub3: ImageSourcePropType
-  }
-}
-
-
-const ProductImage: React.FC<ProductImageProps> = ({ images }: any) => {
+const ProductImage: React.FC = () => {
+  const { images } = useContext(ImageContext)
   const [mainImage, setMainImage] = useState<ImageSourcePropType>(images.main)
 
   const handleSubImagePress = (image: ImageSourcePropType) => {

@@ -1,8 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, Image, Text, FlatList } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
-import products, {Product} from '../utils/product'
-
+import products, { Product } from '../utils/product'
 
 const MoreProduct: React.FC = () => {
   const renderItem = ({ item }: { item: Product }) => (
@@ -90,7 +89,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 4,
-    paddingVertical: 4
+    paddingVertical: 4,
   },
   starIcon: {
     marginRight: 4,

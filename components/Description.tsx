@@ -3,7 +3,8 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 const Description: React.FC = () => {
-  const [isDescriptionVisible, setIsDescriptionVisible] = useState<boolean>(false)
+  const [isDescriptionVisible, setIsDescriptionVisible] =
+    useState<boolean>(false)
 
   const toggleDescription = () => {
     setIsDescriptionVisible(!isDescriptionVisible)

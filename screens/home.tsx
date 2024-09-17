@@ -8,6 +8,7 @@ import Description from '../components/Description'
 import Size from '../components/Size'
 import Recent from '../components/Recent'
 import Cart from '../components/Cart'
+import ImageProvider from '../context/ImageContext'
 
 const Home = () => {
   const [images, setImages] = useState({
@@ -37,15 +38,17 @@ const Home = () => {
 
   return (
     <ScrollView>
-      <ProductImage images={images} />
       <View style={styles.Details}>
-        <ProductDetails />
-        <ColorSection onColorChange={handleColorChange} />
-        <Description />
-        <Size />
-        <Recent />
+        <ImageProvider>
+          <ProductImage />
+          <ProductDetails />
+          <ColorSection />
+          <Description />
+          <Size />
+          <Recent />
+          <Cart />
+        </ImageProvider>
       </View>
-      <Cart />
     </ScrollView>
   )
 }
