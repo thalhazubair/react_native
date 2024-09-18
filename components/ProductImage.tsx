@@ -17,6 +17,8 @@ const ProductImage: React.FC = () => {
   const { images } = useContext(ImageContext)
   const [mainImage, setMainImage] = useState<ImageSourcePropType>(images.main)
 
+  const subImages = [images.sub1, images.sub2, images.sub3]
+
   const handleSubImagePress = (image: ImageSourcePropType) => {
     setMainImage(image)
   }
@@ -32,15 +34,14 @@ const ProductImage: React.FC = () => {
         <Image style={styles.mainimg} source={mainImage} />
       </View>
       <View style={styles.subImagesContainer}>
-        <TouchableOpacity onPress={() => handleSubImagePress(images.sub1)}>
-          <Image style={styles.subimg} source={images.sub1} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => handleSubImagePress(images.sub2)}>
-          <Image style={styles.subimg} source={images.sub2} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => handleSubImagePress(images.sub3)}>
-          <Image style={styles.subimg} source={images.sub3} />
-        </TouchableOpacity>
+        {subImages.map((subImage, index) => (
+          <TouchableOpacity
+            key={index}
+            onPress={() => handleSubImagePress(subImage)}
+          >
+            <Image style={styles.subimg} source={subImage} />
+          </TouchableOpacity>
+        ))}
       </View>
     </SafeAreaView>
   )
