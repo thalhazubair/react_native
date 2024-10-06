@@ -17,7 +17,7 @@ const products: Product[] = [
     image: require('../assets/chair1.png'),
     offer: '45% OFF',
     name: 'EKERO',
-    price: '$230.00',
+    price: '$229.00',
     originalPrice: '$512.28',
     rating: '4.9 (300)',
   },
